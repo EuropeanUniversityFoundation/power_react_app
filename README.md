@@ -1,6 +1,6 @@
 # POWER React App
 
-This is a project included in the POWER project, which creates React embeddable app.
+This is a project included in the POWER project, with the aim to create React embeddable app.
 
 This project make use of Docker.
 
@@ -8,7 +8,7 @@ This project make use of Docker.
 
 In order to test this profile with Docker, you need `docker`, `docker-compose` and `make` installed on your system. If your system meets the requirements, follow these steps:
 
-    git clone git@github.com:EuropeanUniversityFoundation/react-base-app.git
+    git clone git@github.com:EuropeanUniversityFoundation/power_react_app.git
     cd euf-base
     cp .env.example .env          # The .env file is ignored by version control
     nano .env                     # Edit the environment variables if necessary
