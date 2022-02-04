@@ -1,6 +1,6 @@
 # POWER React App
 
-This is a project included in the POWER project, with the aim to create React embeddable app.
+This is a project included in the POWER project, with the aim to create React embeddable apps.
 
 This project make use of Docker.
 

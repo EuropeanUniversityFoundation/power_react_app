@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getToken } from './utils/TokenManager.js'
 import axios from 'axios'
-import env from "react-dotenv"
 
 import Offers from './components/Offers'
 
@@ -13,7 +12,7 @@ function App() {
     return getToken().then(token => {
       // get the token
       if(token.payload !== 403) {
-        axios.get(env.POWER_API_HOST+"/rest/public-pos")
+        axios.get(process.env.REACT_APP_API_URL+"/rest/public-pos")
         .then((res) => {
           console.log("res.data", res.data)
         })
@@ -24,7 +23,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("env", env)
     loadData()
   }, [])
 
