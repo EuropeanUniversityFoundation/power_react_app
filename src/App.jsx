@@ -4,7 +4,9 @@ import axios from 'axios'
 
 import Offers from './components/Offers'
 
-import './App.css';
+import offers from './data/offers.json'
+
+import './App.css'
 
 function App() {
 
@@ -12,7 +14,9 @@ function App() {
     return getToken().then(token => {
       // get the token
       if(token.payload !== 403) {
-        axios.get(process.env.REACT_APP_API_URL+"/rest/public-pos")
+        const jar = {jar: token.cookieJar, withCredentials: true };
+        const headers = {headers: { 'X-CSRF-Token': token.payload }};
+        axios.get(process.env.REACT_APP_API_URL+"/rest/public-pos", jar, headers)
         .then((res) => {
           console.log("res.data", res.data)
         })
@@ -28,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Offers/>
+      <Offers offers={offers} />
     </div>
   );
 }
