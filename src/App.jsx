@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react'
-import { getToken } from './utils/TokenManager.js'
 import axios from 'axios'
-
 import Offers from './components/Offers'
-
-import offers from './data/offers.json'
 
 import './App.css'
 
