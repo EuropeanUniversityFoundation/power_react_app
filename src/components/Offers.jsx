@@ -1,13 +1,37 @@
 import { useState, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
+import axios from 'axios'
 
 function Offers(props) {
 
+  const endpoint = props.isPublic ? '/rest/public-pos' : '/rest/institution-pos'
   const [offers, setOffers] = useState([])
+  const [error, setError] = useState(false)
+
+  const loadData = async () => {
+    const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
+    axios.get(process.env.REACT_APP_API_URL+endpoint, headers)
+    .then((res) => {
+      setOffers(res.data)
+    })
+    .catch((error) => {
+      setError(true)
+    })
+  }
 
   useEffect(() => {
-    setOffers(props.offers)
-  }, [props.offers])
+    loadData()
+  }, [])
+
+  if(error) {
+    return (
+      <div className="container">
+        <div className="row mt-5">
+          <p>{'Error on loading offers. Try again later'}</p>
+        </div>
+      </div>
+    )
+  }
 
   if (Object.keys(offers).length !== 0) {
     return (
@@ -25,7 +49,7 @@ function Offers(props) {
               <div className="col-sm-12 col-md-6" key={index}>      
                 <div className="card mb-3">
                   <div className="card-body">
-                    <h3 className="card-title">Junior CEO</h3>
+                    <h3 className="card-title">{offer.field_job_title}</h3>
                     <div className="row mt-2">            
                       <div className="col-sm-12">
                         <i className="bi-building"></i>{offer.field_company_name}

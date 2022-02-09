@@ -1,28 +1,33 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import Offers from './components/Offers'
+import { Tabs, Tab } from 'react-bootstrap'
 
 import './App.css'
 
 function App() {
 
-  const [apiData, setApiData] = useState([])
-
-  const loadData = async () => {
-    const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
-    axios.get(process.env.REACT_APP_API_URL+"/rest/public-pos", headers)
-    .then((res) => {
-      setApiData(res.data)
-    })
-  }
-
-  useEffect(() => {
-    loadData()
-  }, [])
+  const [key, setKey] = useState('public');
 
   return (
     <div className="App">
-      <Offers offers={apiData} />
+      <div className="container">
+        <div className="row mt-5">
+          <Tabs
+            id="controlled-tab"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-3"
+            unmountOnExit={true}
+          >
+            <Tab eventKey="public" title="Public">
+              <Offers isPublic={true} />
+            </Tab>
+            <Tab eventKey="institution" title="Institution">
+              <Offers isPublic={false} />
+            </Tab>
+          </Tabs>
+        </div>
+      </div>
     </div>
   );
 }
