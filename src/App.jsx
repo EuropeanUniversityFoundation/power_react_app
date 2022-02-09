@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Offers from './components/Offers'
-import { Tabs, Tab } from 'react-bootstrap'
+import { Row, Tabs, Tab } from 'react-bootstrap'
 
 import './App.css'
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="row mt-5">
+        <Row className="mt-5">
           <Tabs
             id="controlled-tab"
             activeKey={key}
@@ -26,7 +26,7 @@ function App() {
               <Offers isPublic={false} />
             </Tab>
           </Tabs>
-        </div>
+        </Row>
       </div>
     </div>
   );
