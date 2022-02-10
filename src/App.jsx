@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import Offers from './components/Offers'
-import { Row, Tabs, Tab } from 'react-bootstrap'
-
-import './App.css'
+import Home from './components/Home'
+import Offer from './components/Offer'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom'
 
 function App() {
 
-  const [key, setKey] = useState('public');
-
   return (
-    <div className="App">
-      <div className="container">
-        <Row className="mt-5">
-          <Tabs
-            id="controlled-tab"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-            unmountOnExit={true}
-          >
-            <Tab eventKey="public" title="Public">
-              <Offers isPublic={true} />
-            </Tab>
-            <Tab eventKey="institution" title="Institution">
-              <Offers isPublic={false} />
-            </Tab>
-          </Tabs>
-        </Row>
-      </div>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/offer/:id" element={<Offer />} />
+        <Route index element={<Home />}/>
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App

@@ -3,9 +3,9 @@
 function Offer() {
   return (
     <div className="row">
-      <p>This the Offer component</p>
+      <p>The Offer component</p>
     </div>
-  );
+  )
 }
 
 export default Offer
