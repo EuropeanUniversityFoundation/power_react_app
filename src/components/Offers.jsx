@@ -33,6 +33,7 @@ function Offers(props) {
       setFiltered(true)
     } else {
       setOffers(initialOffers)
+      setInputText("")
     }
   }
 
@@ -70,7 +71,7 @@ function Offers(props) {
                 <Col xs={12} className="mb-3">
                   <Form.Control 
                     type="text" 
-                    placeholder="Enter text"
+                    placeholder="Type offer title"
                     onChange={(e) => setInputText(e.target.value)} />
                 </Col>
                 <Col>
@@ -101,7 +102,7 @@ function Offers(props) {
                 <Col xs={12} className="mb-3">
                   <Form.Control 
                     type="text" 
-                    placeholder="Enter text"
+                    placeholder="Type offer title"
                     onChange={(e) => setInputText(e.target.value)} />
                 </Col>
                 <Col>
