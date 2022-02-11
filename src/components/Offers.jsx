@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function Offers(props) {
 
@@ -151,7 +152,12 @@ function Offers(props) {
                     </Row>
                     <Row className="mt-2">
                       <Col sm={12}>
-                        <a href="#" className="link-primary float-end">Details</a>
+                        <Link 
+                          to={`/offer/${offer.nid}`}
+                          state={{ isPublic: props.isPublic }} 
+                          className="link-primary float-end">
+                            Details
+                        </Link>
                       </Col>
                     </Row>
                   </div>
