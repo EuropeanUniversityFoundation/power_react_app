@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Row } from 'react-bootstrap'
-import { useParams, useLocation } from "react-router-dom"
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom"
 import axios from 'axios'
 
 function Offer(props) {
@@ -9,6 +9,7 @@ function Offer(props) {
   const [offer, setOffer] = useState([])
   const [initialOffer, setInitialOffer] = useState([])
   
+  const navigate = useNavigate()
   const params = useParams()
   const location = useLocation()
   const { isPublic } = location.state
@@ -85,7 +86,7 @@ function Offer(props) {
                     </div>
                     <div className="row mt-3 mb-2">
                       <div className="col-sm-12">
-                        <a href="mailto:applications@eucme.eu" className="btn btn-primary float-right">
+                        <a href={`mailto:${offer.field_contact_email}`} className="btn btn-primary float-right">
                           <i className="bi-send"></i>Apply via email
                         </a>
                       </div>
@@ -102,7 +103,7 @@ function Offer(props) {
                 <i className="bi-eye" title="Public or this institution only"></i>Availability
               </div>
               <div className="col-6">
-                This institution only
+                {offer.field_target_institution === "" ? "This institution only" : offer.field_target_institution}
               </div>
             </Row>
             <Row>
@@ -166,9 +167,9 @@ function Offer(props) {
         </Row>
         <div className="row mb-2">
           <div className="col-sm-12">
-            <a href="#">
+            <Link to={"/"}>
               <i className="bi-arrow-bar-left"></i>Back to list
-            </a>
+            </Link>
           </div>
         </div>
       </div>
