@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { Link, useParams, useLocation } from "react-router-dom"
 import axios from 'axios'
+import { parseValue } from '../utils/Utils.js'
 
 function Offer(props) {
 
@@ -56,10 +57,10 @@ function Offer(props) {
               <Col sm={12} md={12}>
                 <div className="card mb-3 shadow-sm">
                   <div className="card-body">
-                    <h3 className="card-title text-primary">{offer.field_job_title}</h3>
+                    <h3 className="card-title text-primary">{parseValue(offer.field_job_title)}</h3>
                     <Row className="mt-2">
                       <Col sm={12}>
-                        <i className="bi-building"></i>{offer.field_company_name}
+                        <i className="bi-building"></i>{parseValue(offer.field_company_name)}
                       </Col>
                     </Row>
                     <Row className="mt-1">
@@ -74,7 +75,7 @@ function Offer(props) {
                       </Col>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: offer.field_job_description
+                          __html: parseValue(offer.field_job_description)
                       }}/>
                     </Row>
                     <Row className="mt-3">
@@ -83,7 +84,7 @@ function Offer(props) {
                       </Col>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: offer.field_job_responsibilities
+                          __html: parseValue(offer.field_job_responsibilities)
                       }}/>
                     </Row>
                     <Row className="mt-3">
@@ -92,7 +93,7 @@ function Offer(props) {
                       </Col>
                      <div
                         dangerouslySetInnerHTML={{
-                         __html: offer.field_applicant_required_skills
+                         __html: parseValue(offer.field_applicant_required_skills)
                      }}/>
                     </Row>
                     <Row className="mt-3 mb-2">
@@ -122,7 +123,7 @@ function Offer(props) {
                 <i className="bi-alarm"></i>Apply until
               </Col>
               <Col>
-                {offer.field_job_application_deadline}
+                {parseValue(offer.field_job_application_deadline)}
               </Col>
             </Row>
             <Row>
@@ -130,7 +131,7 @@ function Offer(props) {
                 <i className="bi-calendar"></i>Duration
               </Col>
               <Col>
-                {offer.field_job_duration}
+                {parseValue(offer.field_job_duration)}
               </Col>
             </Row>
             <Row>
@@ -138,7 +139,7 @@ function Offer(props) {
                 <i className="bi-speedometer"></i>Commitment
               </Col>
               <Col>
-                {offer.field_job_commitment}
+                {parseValue(offer.field_job_commitment)}
               </Col>
             </Row>
             <Row>
@@ -146,7 +147,7 @@ function Offer(props) {
                 <i className="bi-currency-exchange"></i>Compensation
               </Col>
               <Col>
-                {offer.field_job_compensation}
+                {parseValue(offer.field_job_compensation)}
               </Col>
             </Row>
             <h5 className="text-secondary mt-3">Contact information</h5>
@@ -171,7 +172,7 @@ function Offer(props) {
                 <i className="bi-telephone"></i>Phone
               </Col>
               <Col>
-                {offer.field_contact_phone_no}
+                {parseValue(offer.field_contact_phone_no)}
               </Col>
             </Row>
           </Col>
