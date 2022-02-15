@@ -52,7 +52,7 @@ function Offer(props) {
         </Row>
         <Row className="mt-4">
           <Col lg={8}>
-            <h5 className="text-secondary mt-3">Job details</h5>
+            <h5 className="text-secondary mt-3 mb-4">Job details</h5>
             <Row>
               <Col sm={12} md={12}>
                 <div className="card mb-3 shadow-sm">
@@ -65,7 +65,10 @@ function Offer(props) {
                     </Row>
                     <Row className="mt-1">
                       <Col sm={6} className="text-secondary">
-                        <i className="bi-geo-alt"></i>{offer.field_job_city}, {offer.field_job_country}
+                        {offer.field_job_city && offer.field_job_country ?
+                          (<><i className="bi-geo-alxt"></i>{offer.field_job_city}, {offer.field_job_country}</>) : 
+                          ("Not provided")
+                        }
                       </Col>
                     </Row>
                     <hr/>
@@ -96,20 +99,22 @@ function Offer(props) {
                          __html: parseValue(offer.field_applicant_required_skills)
                      }}/>
                     </Row>
-                    <Row className="mt-3 mb-2">
-                      <Col sm={12}>
-                        <a href={`mailto:${offer.field_contact_email}`} className="btn btn-primary float-right">
-                          <i className="bi-send"></i>Apply via email
-                        </a>
-                      </Col>
-                    </Row>
+                    {offer.field_contact_email ?
+                      (<Row className="mt-3 mb-2">
+                        <Col sm={12}>
+                          <a href={`mailto:${offer.field_contact_email}`} className="btn btn-primary float-right">
+                            <i className="bi-send"></i>Apply via email
+                          </a>
+                        </Col>
+                      </Row>) : null
+                    }
                   </div>
                 </div>
               </Col>
             </Row>
           </Col>
           <Col lg={4} className="mb-3">
-            <h5 className="text-secondary pt-3">General Information</h5>
+            <h5 className="text-secondary pt-3 mb-4">General Information</h5>
             <Row>
               <Col>
                 <i className="bi-eye" title="Public or this institution only"></i>Availability
@@ -156,7 +161,10 @@ function Offer(props) {
                 <i className="bi-person"></i>Name
               </Col>
               <Col>
-                {offer.field_contact_first_name}{" "}{offer.field_contact_last_name}
+                {offer.field_contact_first_name && offer.field_contact_last_name ?
+                  (<span>{offer.field_contact_first_name}{" "}{offer.field_contact_last_name}</span>) :
+                  ("Not provided")
+                }
               </Col>
             </Row>
             <Row>
@@ -164,7 +172,10 @@ function Offer(props) {
                 <i className="bi-envelope"></i>Email
               </Col>
               <Col>
-                <a href={`mailto:${offer.field_contact_email}`}>{offer.field_contact_email}</a>
+                {offer.field_contact_email ?
+                  (<a href={`mailto:${offer.field_contact_email}`}>{offer.field_contact_email}</a>) : 
+                  ("Not provided")
+                }
               </Col>
             </Row>
             <Row>
