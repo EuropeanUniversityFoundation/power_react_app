@@ -100,7 +100,7 @@ function Offers(props) {
           <Form onSubmit={(e) => filterOffers(e, inputText)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Row >
-                <Col xs={12} className="mb-3">
+                <Col xs={6} className="mb-3">
                   <Form.Control 
                     type="text" 
                     placeholder="Type offer title"
@@ -117,7 +117,7 @@ function Offers(props) {
             </Form.Group>
           </Form>
         </Row>
-        <Row className="mt-3">
+        <Row className="mt-5">
           {offers.map((offer, index) => {
             return (
               <Col sm={12} md={6} key={index}>
