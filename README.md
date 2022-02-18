@@ -15,6 +15,8 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
     make up                       # Create and start the Docker containers
     make shell react              # Access a shell in the Node container
 
+In alternative, if `node` is already installed in your machine, it's possible to run the project with starting a docker container.
+
 Once the `node` container is accessible, it's possible to run the following commands:
 
 ### `npm start`
