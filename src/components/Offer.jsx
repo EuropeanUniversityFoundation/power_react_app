@@ -10,9 +10,7 @@ function Offer(props) {
   const [offer, setOffer] = useState([])
   
   const params = useParams()
-  const location = useLocation()
-  const { isPublic } = location.state
-  const endpoint = isPublic ? '/rest/public-pos/' : '/rest/institution-pos/'
+  const endpoint = '/rest/po/'
 
   const loadData = async () => {
     const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
