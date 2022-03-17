@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import { Link, useParams, useLocation } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from 'axios'
 import { parseValue } from '../utils/Utils.js'
 

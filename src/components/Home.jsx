@@ -6,7 +6,7 @@ import '../App.css'
 
 function Home() {
 
-  const [key, setKey] = useState('public');
+  const [key, setKey] = useState('public')
 
   return (
     <div className="App">
