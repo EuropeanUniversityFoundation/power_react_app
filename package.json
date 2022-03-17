@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:widget": "parcel build src/index.js --no-minify --no-source-maps -d widget && cp build/static/css/*.css widget/index.css"
   },
   "eslintConfig": {
     "extends": [
