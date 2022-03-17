@@ -103,10 +103,10 @@ function Offers(props) {
           setOffersState={setOffersState}
           changeValue={changeValue}
           inputText={inputText} />
-        <Row className="mt-5">
+        <Row>
           {offers.map((offer, index) => {
             return (
-              <Col xs={12} md={6} xl={6} key={index}>
+              <Col xs={12} md={12} xl={6} key={index} className="mt-5">
                 <Card className="h-100">
                   <Card.Body className="d-flex flex-column">
                     <div className="card-top">
