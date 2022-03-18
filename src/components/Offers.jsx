@@ -110,29 +110,29 @@ function Offers(props) {
                 <Card className="h-100">
                   <Card.Body className="d-flex flex-column">
                     <div className="card-top">
-                      <Card.Title as="h3">{offer.field_job_title}</Card.Title>
-                      <Row className="mt-1">
+                      <Row className="mb-1">
                         <Col sm={12} className="text-secondary">
                           <i className="bi-geo-alt"></i>{offer.field_job_city}
                         </Col>
                       </Row>
+                      <Card.Title as="h3">{offer.field_job_title}</Card.Title>
                     </div>
-                    <div className="card-middle flex-grow-1 mt-3">
+                    <div className="card-middle flex-grow-1 mt-2">
                       <Row>
                         <Col sm={12}>
-                          <i className="bi-building"></i>{offer.field_company_name}
+                          <i className="bi-building me-1"></i>{offer.field_company_name}
                         </Col>
                       </Row>
-                      <Row className="mt-3">
+                      <Row className="mt-2">
                         <Col sm={6}>
-                          <i className="bi-alarm" title="Application deadline"></i>{offer.field_job_application_deadline}
+                          <i className="bi-clock me-1" title="Application deadline"></i>{offer.field_job_application_deadline}
                         </Col>
                         <Col sm={6}>
-                          <i className="bi-calendar" title="Duration"></i>{offer.field_job_duration}
+                          <i className="bi-calendar-event me-1" title="Duration"></i>{offer.field_job_duration}
                         </Col>  
                       </Row>
                     </div>
-                    <div className="card-middle mt-1">
+                    <div className="card-middle mt-3">
                       <Row className="mt-3">
                         <Col sm={12}>
                           <div
@@ -148,7 +148,7 @@ function Offers(props) {
                           <Link 
                             to={`/offer/${offer.nid}`}
                             state={{ isPublic: props.isPublic }} 
-                            className="link-primary float-end">
+                            className="link-primary fw-bold float-end">
                               Details
                           </Link>
                         </Col>

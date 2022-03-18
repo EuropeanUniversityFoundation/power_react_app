@@ -20,7 +20,7 @@ function Filters(props) {
   return (
     <Row className="mt-4">
       <Col xs={12}>
-        <Row>
+        <Row className="filters">
           <Col xs={12} className="m-auto">
             <Form onSubmit={(e) => filterOffers(e, props.inputText)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -44,7 +44,7 @@ function Offer(props) {
         <Row className="mt-4">
           <Col sm={12}>
             <Link to={"/"}>
-              <i className="bi-arrow-bar-left"></i>Back to list
+              <i className="bi-chevron-left"></i>Back to list
             </Link>
           </Col>
         </Row>
@@ -55,18 +55,18 @@ function Offer(props) {
               <Col sm={12} md={12}>
                 <div className="card mb-3 shadow-sm">
                   <div className="card-body">
-                    <h3 className="card-title text-primary">{parseValue(offer.field_job_title)}</h3>
-                    <Row className="mt-2">
-                      <Col sm={12}>
-                        <i className="bi-building"></i>{parseValue(offer.field_company_name)}
-                      </Col>
-                    </Row>
-                    <Row className="mt-1">
+                    <Row>
                       <Col sm={6} className="text-secondary">
                         {offer.field_job_city && offer.field_job_country ?
-                          (<><i className="bi-geo-alxt"></i>{offer.field_job_city}, {offer.field_job_country}</>) : 
+                          (<><i className="bi-geo-alt"></i>{offer.field_job_city}, {offer.field_job_country}</>) : 
                           ("Not provided")
                         }
+                      </Col>
+                    </Row>
+                    <h3 className="card-title">{parseValue(offer.field_job_title)}</h3>
+                    <Row className="mt-3">
+                      <Col sm={12}>
+                        <i className="bi-building"></i>{parseValue(offer.field_company_name)}
                       </Col>
                     </Row>
                     <hr/>
@@ -112,51 +112,51 @@ function Offer(props) {
             </Row>
           </Col>
           <Col lg={4} className="mb-3">
-            <h5 className="text-secondary pt-3 mb-4">General Information</h5>
-            <Row>
+            <h5 className="text-secondary pt-3">General Information</h5>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-eye" title="Public or this institution only"></i>Availability
+                <i className="bi-eye me-1" title="Public or this institution only"></i>Availability
               </Col>
               <Col>
                 {offer.field_target_institution === "" ? "This institution only" : offer.field_target_institution}
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-alarm"></i>Apply until
+                <i className="bi-clock me-1"></i>Deadline
               </Col>
               <Col>
                 {parseValue(offer.field_job_application_deadline)}
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-calendar"></i>Duration
+                <i className="bi-calendar-event me-1"></i>Duration
               </Col>
               <Col>
                 {parseValue(offer.field_job_duration)}
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-speedometer"></i>Commitment
+                <i className="bi-speedometer me-1"></i>Commitment
               </Col>
               <Col>
                 {parseValue(offer.field_job_commitment)}
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-currency-exchange"></i>Compensation
+                <i className="bi-currency-exchange me-1"></i>Compensation
               </Col>
               <Col>
                 {parseValue(offer.field_job_compensation)}
               </Col>
             </Row>
-            <h5 className="text-secondary mt-3">Contact information</h5>
-            <Row>
+            <h5 className="text-secondary mt-4">Contact information</h5>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-person"></i>Name
+                <i className="bi-person me-1"></i>Name
               </Col>
               <Col>
                 {offer.field_contact_first_name && offer.field_contact_last_name ?
@@ -165,9 +165,9 @@ function Offer(props) {
                 }
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-1">
               <Col>
-                <i className="bi-envelope"></i>Email
+                <i className="bi-envelope me-1"></i>Email
               </Col>
               <Col>
                 {offer.field_contact_email ?
@@ -178,7 +178,7 @@ function Offer(props) {
             </Row>
             <Row>
               <Col>
-                <i className="bi-telephone"></i>Phone
+                <i className="bi-telephone me-1"></i>Phone
               </Col>
               <Col>
                 {parseValue(offer.field_contact_phone_no)}
