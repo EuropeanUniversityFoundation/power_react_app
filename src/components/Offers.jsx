@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import Filters from './Filters'
+import OfferCard from './OfferCard'
+
+import offersData from '../data/offers.json'
 
 function Offers(props) {
 
@@ -17,8 +19,8 @@ function Offers(props) {
     const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
     axios.get(process.env.REACT_APP_API_URL+endpoint, headers)
     .then((res) => {
-      setOffers(res.data)
-      setInitialOffers(res.data)
+      /*setOffers(res.data)
+      setInitialOffers(res.data)*/
     })
     .catch((error) => {
       setError(true)
@@ -56,6 +58,8 @@ function Offers(props) {
 
   useEffect(() => {
     loadData()
+    setOffers(offersData)
+    setInitialOffers(offersData)
   }, [])
 
   if(error) {
@@ -107,55 +111,7 @@ function Offers(props) {
           {offers.map((offer, index) => {
             return (
               <Col xs={12} md={12} xl={6} key={index} className="mt-5">
-                <Card className="h-100">
-                  <Card.Body className="d-flex flex-column">
-                    <div className="card-top">
-                      <Row className="mb-1">
-                        <Col sm={12} className="text-secondary">
-                          <i className="bi-geo-alt"></i>{offer.field_job_city}
-                        </Col>
-                      </Row>
-                      <Card.Title as="h3">{offer.field_job_title}</Card.Title>
-                    </div>
-                    <div className="card-middle flex-grow-1 mt-2">
-                      <Row>
-                        <Col sm={12}>
-                          <i className="bi-building me-1"></i>{offer.field_company_name}
-                        </Col>
-                      </Row>
-                      <Row className="mt-2">
-                        <Col sm={6}>
-                          <i className="bi-clock me-1" title="Application deadline"></i>{offer.field_job_application_deadline}
-                        </Col>
-                        <Col sm={6}>
-                          <i className="bi-calendar-event me-1" title="Duration"></i>{offer.field_job_duration}
-                        </Col>  
-                      </Row>
-                    </div>
-                    <div className="card-middle mt-3">
-                      <Row className="mt-3">
-                        <Col sm={12}>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: offer.field_job_description
-                          }}/>
-                        </Col>
-                      </Row>
-                    </div>
-                    <div className="card-bottom mt-1">
-                      <Row className="mt-2">
-                        <Col sm={12}>
-                          <Link 
-                            to={`/offer/${offer.nid}`}
-                            state={{ isPublic: props.isPublic }} 
-                            className="link-primary fw-bold float-end">
-                              Details
-                          </Link>
-                        </Col>
-                      </Row>
-                    </div>
-                  </Card.Body>
-                </Card>
+                <OfferCard isPublic={props.isPublic} offer={offer} />
               </Col>
             )
           })}
