@@ -11,7 +11,7 @@ function Home() {
   return (
     <div className="App">
       <div className="container">
-        <Row className="mt-5">
+        <Row className="my-5">
           <Tabs
             id="controlled-tab"
             activeKey={key}

@@ -111,8 +111,8 @@ function Offer(props) {
               </Col>
             </Row>
           </Col>
-          <Col lg={4} className="mb-3">
-            <h5 className="text-secondary pt-3">General Information</h5>
+          <Col lg={4}>
+            <h5 className="text-secondary pt-3 mb-4">General Information</h5>
             <Row className="mb-1">
               <Col>
                 <i className="bi-eye me-1" title="Public or this institution only"></i>Availability
