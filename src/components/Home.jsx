@@ -6,8 +6,6 @@ import '../App.css'
 
 function Home() {
 
-  const [key, setKey] = useState('public')
-
   return (
     <div className="App">
       <div className="container">
@@ -15,7 +13,7 @@ function Home() {
           <Tabs
             id="controlled-tab"
             activeKey={key}
-            onSelect={(k) => setKey(k)}
+            onSelect='public'
             className="mb-3"
             unmountOnExit={true}
           >
