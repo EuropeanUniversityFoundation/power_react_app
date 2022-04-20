@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Enzyme, { configure, mount, shallow } from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+/*import Adapter from "@wojtekmaj/enzyme-adapter-react-17";*/
 import expect from 'expect';
 import createRouterContext from 'react-router-test-context';
 import React from 'react';
@@ -14,7 +14,7 @@ import Offers from './components/Offers';
 import OfferCard from './components/OfferCard';
 import Offer from './components/Offer';
 
-Enzyme.configure({ adapter: new Adapter() });
+/*Enzyme.configure({ adapter: new Adapter() });*/
 
 const offer = {
   nid: "10",
