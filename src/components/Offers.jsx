@@ -4,7 +4,7 @@ import axios from 'axios'
 import Filters from './Filters'
 import OfferCard from './OfferCard'
 
-import offersData from '../data/offers.json'
+/*import offersData from '../data/offers.json'*/
 
 function Offers(props) {
 
@@ -16,11 +16,10 @@ function Offers(props) {
   const [inputText, setInputText] = useState("")
 
   const loadData = async () => {
-    const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
-    axios.get(process.env.REACT_APP_API_URL+endpoint, headers)
+    axios.get(process.env.REACT_APP_API_URL+endpoint)
     .then((res) => {
-      /*setOffers(res.data)
-      setInitialOffers(res.data)*/
+      setOffers(res.data)
+      setInitialOffers(res.data)
     })
     .catch((error) => {
       setError(true)
@@ -58,8 +57,6 @@ function Offers(props) {
 
   useEffect(() => {
     loadData()
-    setOffers(offersData)
-    setInitialOffers(offersData)
   }, [])
 
   if(error) {
