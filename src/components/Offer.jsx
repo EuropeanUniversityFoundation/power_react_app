@@ -13,8 +13,7 @@ function Offer(props) {
   const endpoint = '/rest/po/'
 
   const loadData = async () => {
-    const headers = {headers: {'api-key': process.env.REACT_APP_POWER_API_KEY}}
-    axios.get(process.env.REACT_APP_API_URL+endpoint+params.id, headers)
+    axios.get(process.env.REACT_APP_API_URL+endpoint+params.id)
     .then((res) => {
       setOffer(res.data[0])
     })
