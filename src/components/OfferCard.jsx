@@ -8,20 +8,29 @@ function OfferCard(props) {
     <Card className="h-100">
       <Card.Body className="d-flex flex-column">
         <div className="card-top">
-          <Row className="mb-1">
-            <Col sm={12} className="text-secondary">
-              <i className="bi-geo-alt"></i>{props.offer.field_job_city}, {codeToName(props.offer.field_job_country)}
-            </Col>
-          </Row>
+          {props.offer.field_job_category ?
+            (<Row className="mb-2">
+              <Col sm={12} className="text-secondary text-uppercase">
+                {props.offer.field_job_category}
+              </Col>
+            </Row>) : null
+          }
           <Card.Title as="h3">{props.offer.field_job_title}</Card.Title>
         </div>
         <div className="card-middle flex-grow-1 mt-2">
-          <Row>
+          <Row className="mb-1">
             <Col sm={12}>
               <i className="bi-building me-1"></i>{props.offer.field_company_name}
             </Col>
           </Row>
-          <Row className="mt-2">
+
+          <Row>
+            <Col sm={12} className="text-secondary">
+              <i className="bi-geo-alt"></i>{props.offer.field_job_city}, {codeToName(props.offer.field_job_country)}
+            </Col>
+          </Row>
+          
+          <Row className="mt-3">
             <Col sm={6}>
               <i className="bi-clock me-1" title="Application deadline"></i>{props.offer.field_job_application_deadline}
             </Col>

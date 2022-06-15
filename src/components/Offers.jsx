@@ -18,6 +18,7 @@ function Offers(props) {
   const loadData = async () => {
     axios.get(process.env.REACT_APP_API_URL+endpoint)
     .then((res) => {
+      console.log(res.data[0])
       setOffers(res.data)
       setInitialOffers(res.data)
     })

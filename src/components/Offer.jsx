@@ -54,21 +54,30 @@ function Offer(props) {
               <Col sm={12} md={12}>
                 <div className="card mb-3 shadow-sm">
                   <div className="card-body">
+                    {offer.field_job_category ?
+                      (<Row className="mt-1 mb-2">
+                        <Col sm={12}>
+                          <span className="text-uppercase">{offer.field_job_category}</span>
+                        </Col>
+                      </Row>) : null
+                    }
+                    <h3 className="card-title mt-1 mb-2">{parseValue(offer.field_job_title)}</h3>
+
                     <Row>
-                      <Col sm={6} className="text-secondary">
+                      <Col sm={6} className="mb-2">
+                        <i className="bi-building"></i>{parseValue(offer.field_company_name)}
+                      </Col>
+                    </Row>
+
+                    <Row className="text-secondary">
+                      <Col sm={6} className="mb-2">
                         {offer.field_job_city && offer.field_job_country ?
                           (<><i className="bi-geo-alt"></i>{offer.field_job_city}, {offer.field_job_country}</>) : 
                           ("Not provided")
                         }
                       </Col>
                     </Row>
-                    <h3 className="card-title">{parseValue(offer.field_job_title)}</h3>
-                    <Row className="mt-3">
-                      <Col sm={12}>
-                        <i className="bi-building"></i>{parseValue(offer.field_company_name)}
-                      </Col>
-                    </Row>
-                    <hr/>
+                    
                     <Row className="mt-3">
                       <Col sm={12} >
                         <h5>Job description</h5>
@@ -78,7 +87,7 @@ function Offer(props) {
                           __html: parseValue(offer.field_job_description)
                       }}/>
                     </Row>
-                    <Row className="mt-3">
+                    <Row className="mt-2">
                       <Col sm={12}>
                         <h5>Responsibilities</h5>
                       </Col>
@@ -87,7 +96,7 @@ function Offer(props) {
                           __html: parseValue(offer.field_job_responsibilities)
                       }}/>
                     </Row>
-                    <Row className="mt-3">
+                    <Row className="mt-2">
                       <Col sm={12}>
                         <h5>Required skills</h5>
                       </Col>
@@ -96,11 +105,20 @@ function Offer(props) {
                          __html: parseValue(offer.field_applicant_required_skills)
                      }}/>
                     </Row>
+                    <Row className="mt-2">
+                      <Col sm={12}>
+                        <h5>How to apply</h5>
+                      </Col>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: parseValue(offer.field_how_to_apply)
+                      }}/>
+                    </Row>
                     {offer.field_contact_email ?
-                      (<Row className="mt-3 mb-2">
+                      (<Row className="mt-4 mb-2">
                         <Col sm={12}>
                           <a href={`mailto:${offer.field_contact_email}`} className="btn btn-primary float-right">
-                            <i className="bi-send"></i>Apply via email
+                            <i className="bi-send"></i>Apply
                           </a>
                         </Col>
                       </Row>) : null
