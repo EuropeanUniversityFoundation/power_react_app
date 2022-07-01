@@ -45,7 +45,7 @@ The build is minified and the filenames include the hashes.
 ### `npm run build:widget`
 
 Builds the app for production to the `widget` folder.\
-It creates one `js` and one `css` file, which can be used as libraries to be embedded in different websites.
+It creates one `js` file and one `css` file, which can be used as libraries to be embedded in different websites.
 
 ## Adding Custom Environment Variables
 
