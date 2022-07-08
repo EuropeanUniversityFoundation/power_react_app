@@ -15,6 +15,7 @@ function Offer(props) {
   const loadData = async () => {
     axios.get(process.env.REACT_APP_API_URL+endpoint+params.id)
     .then((res) => {
+      console.log("res.data[0]", res.data[0])
       setOffer(res.data[0])
     })
     .catch((error) => {
@@ -135,7 +136,7 @@ function Offer(props) {
                 <i className="bi-eye me-1" title="Public or this institution only"></i>Availability
               </Col>
               <Col>
-                {offer.field_target_institution === "" ? "This institution only" : offer.field_target_institution}
+                {offer.field_target_institution === "" ? "Public" : offer.field_target_institution}
               </Col>
             </Row>
             <Row className="mb-1">
