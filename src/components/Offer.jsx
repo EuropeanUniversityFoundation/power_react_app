@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import { Link, useParams } from "react-router-dom"
 import axios from 'axios'
 import { parseValue } from '../utils/Utils.js'
+import { useNavigate } from 'react-router-dom'
 
 function Offer(props) {
 
@@ -12,11 +13,16 @@ function Offer(props) {
   const params = useParams()
   const endpoint = '/rest/po/'
 
+  let navigate = useNavigate()
+
   const loadData = async () => {
     axios.get(process.env.REACT_APP_API_URL+endpoint+params.id)
     .then((res) => {
-      console.log("res.data[0]", res.data[0])
-      setOffer(res.data[0])
+      if(res.data[0]) {
+        setOffer(res.data[0])
+      } else {
+        navigate("/")
+      }
     })
     .catch((error) => {
       setError(true)
