@@ -1,17 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Offers from './Offers'
-import { Row, Tabs, Tab } from 'react-bootstrap'
+import { Row, Tabs, Tab, Alert } from 'react-bootstrap'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import '../App.css'
 
 function Home() {
 
   const [key, setKey] = useState('public')
+  const [show, setShow] = useState(true)
+
+  let navigate = useNavigate()
+  let location = useLocation()
+
+  useEffect(() => {
+    navigate(location.pathname, {})
+  }, [])
 
   return (
     <div className="App">
       <div className="container">
         <Row className="my-5">
+          { location.state && show ?
+            (<Alert 
+              key={"warning"} 
+              variant={"warning"}
+              onClose={() => setShow(false)} 
+              dismissible>
+                {location.state}
+              </Alert>) : null
+          }
           <Tabs
             id="controlled-tab"
             activeKey={key}

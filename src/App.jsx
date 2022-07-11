@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:offerId" element={<Offer />} />
         <Route index element={<Home />}/>
       </Routes>
     </Router>

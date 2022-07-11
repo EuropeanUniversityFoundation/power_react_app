@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { parseValue } from '../utils/Utils.js'
-import { useNavigate } from 'react-router-dom'
 
 function Offer(props) {
 
@@ -14,14 +13,15 @@ function Offer(props) {
   const endpoint = '/rest/po/'
 
   let navigate = useNavigate()
+  let { offerId } = useParams()
 
   const loadData = async () => {
-    axios.get(process.env.REACT_APP_API_URL+endpoint+params.id)
+    axios.get(process.env.REACT_APP_API_URL+endpoint+params.offerId)
     .then((res) => {
       if(res.data[0]) {
         setOffer(res.data[0])
       } else {
-        navigate("/")
+        navigate("/", { state: "Offer with ID " + offerId + " doesn't exist" })
       }
     })
     .catch((error) => {
