@@ -17,7 +17,7 @@ function OfferCard(props) {
           }
           <Card.Title as="h3">{props.offer.field_job_title}</Card.Title>
         </div>
-        <div className="card-middle flex-grow-1 mt-2">
+        <div className="card-middle justify-content-between flex-grow-1 mt-2">
           <Row className="mb-1">
             <Col sm={12}>
               <i className="bi-building me-1"></i>{props.offer.field_company_name}
@@ -38,9 +38,8 @@ function OfferCard(props) {
               <i className="bi-calendar-event me-1" title="Duration"></i>{props.offer.field_job_duration}
             </Col>  
           </Row>
-        </div>
-        <div className="card-middle mt-3">
-          <Row className="mt-3">
+
+          <Row className="mt-5">
             <Col sm={12}>
               <div
                 dangerouslySetInnerHTML={{
@@ -49,7 +48,7 @@ function OfferCard(props) {
             </Col>
           </Row>
         </div>
-        <div className="card-bottom mt-1">
+        <div className="card-bottom mt-2">
           <Row className="mt-2">
             <Col sm={12}>
               <Link 
