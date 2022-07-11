@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import axios from 'axios'
 import Filters from './Filters'
 import OfferCard from './OfferCard'
@@ -71,10 +71,8 @@ function Offers(props) {
 
   if (Object.keys(offers).length === 0 && !filtered) {
     return (
-      <Container>
-        <Row className="mt-4">
-          <p>{'Loading offers...'}</p>
-        </Row>
+      <Container className="d-flex align-items-center justify-content-center" style={{ "height" : "70vh" }}>
+        <Spinner animation="border" role="status"></Spinner>
       </Container>
     )
   }

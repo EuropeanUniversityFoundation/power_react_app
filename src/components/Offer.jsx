@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { parseValue } from '../utils/Utils.js'
@@ -214,11 +214,9 @@ function Offer(props) {
     )
   } else {
     return (
-      <div className="container">
-        <Row className="mt-5">
-          <p>{'Loading data...'}</p>
-        </Row>
-      </div>
+      <Container className="d-flex align-items-center justify-content-center" style={{ "height" : "70vh" }}>
+        <Spinner animation="border" role="status"></Spinner>
+      </Container>
     )
   }
 }
