@@ -44,10 +44,27 @@ The build is minified and the filenames include the hashes.
 ### `npm run build:widget`
 
 Builds the app for production to the `widget` folder.\
-It creates one `js` file and one `css` file, which can be used as libraries to be embedded in different websites.
+It creates one `js` file and one `css` file, which can be used as libraries to be embedded in different websites.\
+
+It needs `npm install` and `npm run build` to be able to work.
 
 ## Adding Custom Environment Variables
 
 Your project can consume variables declared in your environment as if they were declared locally in your JS files. By default you will have `NODE_ENV` defined for you, and any other environment variables starting with `REACT_APP_`.
 
 Note: You must create custom environment variables beginning with `REACT_APP_`. Any other variables except NODE_ENV will be ignored to avoid accidentally exposing a private key on the machine that could have the same name. Changing any environment variables will require you to restart the development server if it is running.
+
+## Deployment
+
+This React app is meant to be embedded in institutions websites.
+
+To create the embeddable app it's necessary go through the following steps:
+In the case of **Plesk**, connect the server to this repository, then **Pull Updates** and **Deploy**
+Then from the command line:
+1. Run `npm install` to install all the dependencies
+2. Run `npm run build`, which compiles the files in the *src* folder and place the result in the *build* folder (the *build* folder is created if it doesn't exist)
+3. Run `npm run build:widget`, which creates `index.js` and `index.css` files
+
+Move the files wherever is convenient. The app is then attached to a `div` element having the ***power*** html id attribute. It's possible to specify a different the html id attribute in the `index.js` inside the *src* folder and in `index.html` inside the *public* folder.
+- Point `index.js` script and `index.css` stylesheet into the institution's website 
+- Finally, the `div` element must be present in the institution's website to be able to work properly
