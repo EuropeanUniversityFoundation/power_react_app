@@ -2,7 +2,7 @@
 
 This is a project included in the POWER project, with the aim to create React embeddable apps.
 
-This is an application embeddable into the university websites. 
+This application is embeddable into the university websites. 
 It displays a list of public Placement Opportunities and institution-specific Placement Opportunities on the webpage it is used on.
 
 Technologies used: React, NPM and Docker
@@ -18,9 +18,9 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
     make up                       # Create and start the Docker containers
     make shell react              # Access a shell in the Node container
 
-In alternative, if `node` is already installed in your machine, it's possible to run the project without starting a `docker` container.
+In alternative, if `node` is already installed in your machine, it is possible to run the project without starting a `docker` container.
 
-Once the `node` container is accessible, it's possible to run the following commands:
+Once the `node` container is accessible, you can run the following commands:
 
 ### `npm start`
 
@@ -58,13 +58,14 @@ Note: You must create custom environment variables beginning with `REACT_APP_`. 
 
 This React app is meant to be embedded in institutions websites.
 
-To create the embeddable app it's necessary go through the following steps:
-In the case of **Plesk**, connect the server to this repository, then **Pull Updates** and **Deploy**
+To create the embeddable app it is necessary to go through the following steps:
+In the case of **Plesk**, connect the server to this repository, then **Pull Updates** and **Deploy**.
+
 Then from the command line:
 1. Run `npm install` to install all the dependencies
-2. Run `npm run build`, which compiles the files in the *src* folder and place the result in the *build* folder (the *build* folder is created if it doesn't exist)
+2. Run `npm run build`, which compiles the files in the *src* folder and places the result in the *build* folder (the *build* folder is created if it doesn't exist)
 3. Run `npm run build:widget`, which creates `index.js` and `index.css` files
 
-Move the files wherever is convenient. The app is then attached to a `div` element having the ***power*** html id attribute (`<div id="power"></div>`). It's possible to specify a different the html id attribute in the `index.js` inside the *src* folder and in `index.html` inside the *public* folder.
+Move the files wherever is convenient. The app is then attached to a `div` element having the ***power*** html id attribute (`<div id="power"></div>`). It is possible to specify a different html id attribute in the `index.js` inside the *src* folder and in `index.html` inside the *public* folder.
 - Point `index.js` script and `index.css` stylesheet into the institution's website 
-- Finally, the `div` element must be present in the institution's website to be able to work properly
+- Finally, the `div` element must be present in the institution's website in order to work properly
