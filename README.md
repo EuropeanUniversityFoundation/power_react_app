@@ -60,15 +60,49 @@ This React app is meant to be embedded in institutions websites.
 
 To create the embeddable app start by deploying the code:
 
-    git clone https://github.com/EuropeanUniversityFoundation/power_react_app.git {PROJECT_ROOT}
-    
+    git clone https://github.com/EuropeanUniversityFoundation/power_react_app.git {PROJECT_ROOT} 
+
 If `PROJECT_ROOT` is omitted the directory will be named `power_react_app`.
 
 Then from the command line:
-1. Run `npm install` to install all the dependencies
-2. Run `npm run build`, which compiles the files in the *src* folder and places the result in the *build* folder (the *build* folder is created if it doesn't exist)
-3. Run `npm run build:widget`, which creates `index.js` and `index.css` files
 
-Move the files wherever is convenient. The app is then attached to a `div` element having the ***power*** html id attribute (`<div id="power"></div>`). It is possible to specify a different html id attribute in the `index.js` inside the *src* folder and in `index.html` inside the *public* folder.
-- Point `index.js` script and `index.css` stylesheet into the institution's website 
-- Finally, the `div` element must be present in the institution's website in order to work properly
+    cd {PROJECT_ROOT}
+    npm install             # Install all the dependencies
+    npm run build           # Compile the files in /src and place them into /build
+    npm run build:widget    # Create `index.js` and `index.css` files and place them into /widget
+
+The generated widget files can now be included in the website.
+
+### Example structure
+
+For a very simple webpage structure like the one shown below:
+
+    .
+    └── webpage
+        ├── css
+        │   └── style.css
+        ├── index.html
+        └── powerapp
+            ├── index.css
+            └── index.js
+
+
+The HTML document must include generated widget files and an HTML element to which the application will attach:
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        ...
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="powerapp/index.css" />
+        <title>POWER App</title>
+      </head>
+      <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        
+        <div id="power"></div>
+        ...
+        <script src="powerapp/index.js" type="javascript" />
+      </body>
+    </html>
+
