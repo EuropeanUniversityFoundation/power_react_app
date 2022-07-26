@@ -58,8 +58,11 @@ Note: You must create custom environment variables beginning with `REACT_APP_`. 
 
 This React app is meant to be embedded in institutions websites.
 
-To create the embeddable app it is necessary to go through the following steps:
-In the case of **Plesk**, connect the server to this repository, then **Pull Updates** and **Deploy**.
+To create the embeddable app start by deploying the code:
+
+    git clone https://github.com/EuropeanUniversityFoundation/power_react_app.git {PROJECT_ROOT}
+    
+If `PROJECT_ROOT` is omitted the directory will be named `power_react_app`.
 
 Then from the command line:
 1. Run `npm install` to install all the dependencies
