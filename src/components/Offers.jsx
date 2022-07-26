@@ -102,13 +102,13 @@ function Offers(props) {
           setOffersState={setOffersState}
           changeValue={changeValue}
           inputText={inputText} />
-        <Row className="mt-4">
-          <p className="fst-italic">{Object.keys(offers).length} offer(s) found</p>
-        </Row>
         <Row className="mt-2">
+          <Row className="mt-4">
+            <p className="fst-italic mb-0">{Object.keys(offers).length} offer(s) found</p>
+          </Row>
           {offers.map((offer, index) => {
             return (
-              <Col xs={12} md={12} xl={6} key={index}>
+              <Col className="mt-4" xs={12} md={12} xl={6} key={index}>
                 <OfferCard isPublic={props.isPublic} offer={offer} />
               </Col>
             )
