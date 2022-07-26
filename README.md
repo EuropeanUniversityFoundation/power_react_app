@@ -102,7 +102,7 @@ The HTML document must include generated widget files and an HTML element to whi
         
         <div id="power"></div>
         ...
-        <script src="powerapp/index.js" type="javascript" />
+        <script src="powerapp/index.js" type="text/javascript" />
       </body>
     </html>
 
