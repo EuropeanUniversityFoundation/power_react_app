@@ -4,8 +4,6 @@ import axios from 'axios'
 import Filters from './Filters'
 import OfferCard from './OfferCard'
 
-/*import offersData from '../data/offers.json'*/
-
 function Offers(props) {
 
   const endpoint = props.isPublic ? '/rest/public-pos' : '/rest/institution-pos'
