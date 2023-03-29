@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar, Image } from 'react-bootstrap'
 import logo from './../logo.png';
 
-function Header(props) {
+function Header() {
 
   return (
     <Navbar bg="light" expand="lg">

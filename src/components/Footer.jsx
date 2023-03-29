@@ -1,7 +1,7 @@
 import { Container, Row, Col, } from 'react-bootstrap'
 import coFunded from "./../assets/img/co-funded.png";
 
-function Footer(props) {
+function Footer() {
   return (
     <footer className="footer py-5 mt-auto">
       <Container>
