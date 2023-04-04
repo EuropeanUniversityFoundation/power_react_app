@@ -16,8 +16,8 @@ function Header() {
 
             <h2 className="d-none sr-only" id="main-menu-title">Main navigation</h2>
 
-            <Nav.Link href="https://power.uni-foundation.eu">POWER project</Nav.Link>
-            <Nav.Link href="https://power.uni-foundation.eu">Placement platform</Nav.Link>
+            <Nav.Link href="https://power-placements.eu/" target="_blank" rel="noreferrer">POWER project</Nav.Link>
+            <Nav.Link href="https://power.uni-foundation.eu" target="_blank" rel="noreferrer">Placement platform</Nav.Link>
           </Nav>
 
         </Navbar.Collapse>
