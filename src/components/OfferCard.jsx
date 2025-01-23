@@ -1,5 +1,5 @@
 import { Row, Col, Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { codeToName } from '../utils/Utils.js'
 
 function OfferCard(props) {

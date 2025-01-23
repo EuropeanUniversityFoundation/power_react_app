@@ -1,3 +1,7 @@
+#power {
+  min-height: 100vh;
+}
+
 [class^="bi-"]{
   padding-right: 0.2rem;
 }
@@ -8,4 +12,8 @@
 
 .filters .btn {
   padding: 1rem 0.75rem !important;
+}
+
+.nav-link {
+  color: #154448 !important;
 }
