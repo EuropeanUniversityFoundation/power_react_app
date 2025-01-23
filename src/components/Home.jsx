@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Offers from './Offers'
 import { Row, Tabs, Tab, Alert } from 'react-bootstrap'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router'
 
 import '../App.css'
 

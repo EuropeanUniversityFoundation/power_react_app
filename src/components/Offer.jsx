@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router"
 import axios from 'axios'
 import { parseValue } from '../utils/Utils.js'
 
